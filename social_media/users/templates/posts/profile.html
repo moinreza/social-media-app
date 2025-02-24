@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+  </head>
+  <body>
+    <h1>{{ user.username }}'s Profile</h1>
+    <h2>Your Posts:</h2>
+    {% for post in posts %}
+    <div>
+      <h3>{{ post.user.username }}</h3>
+      <p>{{ post.text }}</p>
+      {% if post.image %}
+      <img src="{{ post.image.url }}" alt="Post Image" width="200" />
+      {% endif %}
+      <p>{{ post.created_at }}</p>
+      <a href="{% url 'edit_post' post.id %}">Edit</a> |
+      <a href="{% url 'delete_post' post.id %}">Delete</a>
+    </div>
+    {% empty %}
+    <p>You have no posts yet.</p>
+    {% endfor %}
+  </body>
+</html>

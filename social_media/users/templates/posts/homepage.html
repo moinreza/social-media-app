@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<body>
+    <h1>Homepage - My Social Media App</h1>
+
+    <!-- Search Bar -->
+    <form method="GET" action="">
+        <input type="text" name="search" placeholder="Search posts" value="{{ request.GET.search }}">
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Filtering Options -->
+    <form method="GET" action="">
+        <label for="date">Filter by Date:</label>
+        <select name="date" id="date">
+            <option value="newest" {% if request.GET.date == "newest" %}selected{% endif %}>Newest</option>
+            <option value="oldest" {% if request.GET.date == "oldest" %}selected{% endif %}>Oldest</option>
+        </select>
+
+        <label for="media">Filter by Media Type:</label>
+        <select name="media" id="media">
+            <option value="">All</option>
+            <option value="images" {% if request.GET.media == "images" %}selected{% endif %}>Images Only</option>
+            <option value="text" {% if request.GET.media == "text" %}selected{% endif %}>Text Only</option>
+        </select>
+
+        <label for="user">Filter by User:</label>
+        <select name="user" id="user">
+            <option value="">All Users</option>
+            {% for user in users %}
+                <option value="{{ user.username }}" {% if request.GET.user == user.username %}selected{% endif %}>{{ user.username }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Filter</button>
+    </form>
+
+    <h2>Posts:</h2>
+    {% for post in posts %}
+        <div>
+            <h3>{{ post.user.username }}</h3>
+            <p>{{ post.text }}</p>
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="Post Image" width="200">
+            {% endif %}
+            <p>{{ post.created_at }}</p>
+        </div>
+    {% empty %}
+        <p>No posts available.</p>
+    {% endfor %}
+</body>
+</html>

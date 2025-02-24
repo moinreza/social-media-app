@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete Post</title>
+  </head>
+  <body>
+    <h1>Are you sure you want to delete this post?</h1>
+    <div>
+      <h3>{{ post.user.username }}</h3>
+      <p>{{ post.text }}</p>
+      {% if post.image %}
+      <img src="{{ post.image.url }}" alt="Post Image" width="200" />
+      {% endif %}
+    </div>
+    <form method="POST">
+      {% csrf_token %}
+      <button type="submit">Yes, Delete</button>
+    </form>
+    <a href="{% url 'homepage' %}">Cancel</a>
+  </body>
+</html>

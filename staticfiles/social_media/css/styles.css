@@ -1,0 +1,192 @@
+/* styles.css */
+
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+header nav ul {
+  list-style: none;
+}
+
+header nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  margin-top: 20px;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Posts Section */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+ul li p {
+  font-size: 16px;
+}
+
+ul li img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+ul li .post-details {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #888;
+}
+
+ul li .post-details a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+ul li .post-details a:hover {
+  text-decoration: underline;
+}
+
+/* Form Styles */
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+form input,
+form textarea,
+form button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Profile Page */
+.profile-info {
+  margin-bottom: 20px;
+}
+
+.profile-info h2 {
+  font-size: 24px;
+}
+
+.profile-info ul {
+  margin-top: 20px;
+}
+
+.profile-info ul li {
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.profile-info ul li .post-date {
+  font-size: 12px;
+  color: #888;
+}
+
+/* Delete Confirmation */
+.delete-confirmation {
+  text-align: center;
+}
+
+.delete-confirmation h2 {
+  font-size: 20px;
+}
+
+.delete-confirmation p {
+  font-size: 16px;
+}
+
+.delete-confirmation form button {
+  width: auto;
+  background-color: red;
+}
+
+.delete-confirmation form button:hover {
+  background-color: darkred;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header nav ul {
+    text-align: center;
+  }
+
+  header nav ul li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  form input,
+  form textarea,
+  form button {
+    width: 100%;
+  }
+}

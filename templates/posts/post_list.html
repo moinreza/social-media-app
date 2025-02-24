@@ -1,0 +1,9 @@
+{% for post in posts %}
+<div class="post">
+  <p>{{ post.content }}</p>
+
+  {% if post.image %}
+  <img src="{{ post.image.url }}" alt="Post Image" />
+  {% endif %}
+</div>
+{% endfor %}

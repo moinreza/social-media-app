@@ -1,0 +1,45 @@
+<!-- templates/posts/home.html -->
+{% extends 'base.html' %} {% block content %}
+<h1>Global Feed</h1>
+<form method="GET">
+  <input
+    type="text"
+    name="search"
+    placeholder="Search..."
+    value="{{ request.GET.search }}"
+  />
+  <button type="submit">Search</button>
+  <select name="date">
+    <option value="">Sort by date</option>
+    <option value="newest">Newest</option>
+    <option value="oldest">Oldest</option>
+  </select>
+  <select name="media">
+    <option value="">Filter by media</option>
+    <option value="image">Images</option>
+    <option value="text">Text-only</option>
+  </select>
+  <input
+    type="text"
+    name="user"
+    placeholder="Filter by user"
+    value="{{ request.GET.user }}"
+  />
+  <button type="submit">Apply</button>
+</form>
+<ul>
+  {% for post in posts %}
+  <li>
+    <p>{{ post.text }}</p>
+    {% if post.image %}
+    <img src="{{ post.image.url }}" alt="Post image" />
+    {% endif %}
+    <p>By {{ post.owner.username }} - {{ post.created_at }}</p>
+    {% if post.owner == user %}
+    <a href="{% url 'edit_post' post.id %}">Edit</a> |
+    <a href="{% url 'delete_post' post.id %}">Delete</a>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

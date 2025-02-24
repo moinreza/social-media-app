@@ -1,0 +1,14 @@
+<!-- templates/posts/profile.html -->
+{% extends 'base.html' %} {% block content %}
+<h2>{{ user.username }}'s Profile</h2>
+<p>Welcome to your profile page!</p>
+
+<h3>Your Posts:</h3>
+<ul>
+  {% for post in posts %}
+  <li>{{ post.text }}</li>
+  {% empty %}
+  <li>You haven't posted anything yet.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
